@@ -14,7 +14,7 @@ import java.util.Date;
 public class Ticket {
     
     
-      private int numero;
+    private int numero;
     private Date ingreso;
     private Date salida;
     private double total;

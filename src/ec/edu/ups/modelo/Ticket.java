@@ -12,8 +12,7 @@ import java.util.Date;
  * @author Usuario
  */
 public class Ticket {
-    
-    
+
     private int numero;
     private Date ingreso;
     private Date salida;
@@ -75,12 +74,20 @@ public class Ticket {
         }
         return true;
     }
-    
-    
 
     @Override
     public String toString() {
         return "Ticket{" + "numero=" + numero + ", ingreso=" + ingreso + ", salida=" + salida + ", total=" + total + '}';
     }
-    
+
+    public double obtenerTotal() {
+        while (salida.getMinutes() != 0) {
+            if(salida.getMinutes() - ingreso.getMinutes() > 9){
+                total += 0.25;
+                salida.setMinutes(salida.getMinutes()-10);
+            }
+        }
+        return total;
+    }
+
 }
